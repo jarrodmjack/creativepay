@@ -1,0 +1,2 @@
+Add sort to exchanges table
+Add pagination to exchanges table with active button selector
