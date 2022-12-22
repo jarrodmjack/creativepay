@@ -15,7 +15,7 @@ const Table = () => {
     })
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto shadow-xl">
             <table className="table w-full ">
                 <thead>
                     <tr>
