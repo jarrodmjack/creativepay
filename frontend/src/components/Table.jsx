@@ -9,7 +9,6 @@ const Table = () => {
                 method: "GET"
             })
             const data = await response.json()
-            console.log('punches ', data)
         }
         fetchTimePunches()
     })
@@ -36,7 +35,7 @@ const Table = () => {
                         <td>4:30PM</td>
                         <td>$142</td>
                     </tr>
-                    <tr className="hover cursor-pointer">
+                    {/* <tr className="hover cursor-pointer">
                         <td>Cy Ganderton</td>
                         <td>Nov 8th</td>
                         <td>Office</td>
@@ -75,7 +74,7 @@ const Table = () => {
                         <td>9:00AM</td>
                         <td>4:30PM</td>
                         <td>$142</td>
-                    </tr>
+                    </tr> */}
                 </tbody>
             </table>
         </div>

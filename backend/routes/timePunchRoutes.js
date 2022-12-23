@@ -6,5 +6,6 @@ const router = express.Router()
 
 router.get('/', getTimePunches)
 router.post('/', createTimePunch)
+// router.delete()
 
 module.exports = router
