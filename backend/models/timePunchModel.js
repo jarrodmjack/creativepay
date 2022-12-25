@@ -7,6 +7,10 @@ const timePunchSchema = new Schema({
         type: String,
         required: true
     },
+    employeeName: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         required: true
@@ -28,6 +32,6 @@ const timePunchSchema = new Schema({
         required: true
     },
 
-  },{ timestamps: true })
+}, { timestamps: true })
 
 module.exports = mongoose.model('timePunch', timePunchSchema)

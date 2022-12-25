@@ -17,7 +17,7 @@ const getTimePunches = async (req, res) => {
 const createTimePunch = async (req, res) => {
 
 
-    try{
+    try {
         const {
             employee,
             location,
@@ -25,7 +25,7 @@ const createTimePunch = async (req, res) => {
             timeStart,
             timeEnd,
         } = req.body
-        
+
         const calcDifference = (timeStart, timeEnd) => {
             timeStart = timeStart.split(':').join('')
             timeEnd = timeEnd.split(':').join('')
@@ -36,18 +36,27 @@ const createTimePunch = async (req, res) => {
                 return (hours * 60 + minutes) / 60;
             });
             console.log(parsedHours)
-            return parsedHours[1] - parsedHours[0]
+            const worked = parsedHours[1] - parsedHours[0]
+            return Math.ceil(worked / 0.5) * 0.5;
         }
-    
+
         const worked = calcDifference(timeStart, timeEnd)
-        console.log(worked)
-        const emp = await Employee.find({name: employee})
-        
-        // await TimePunch.create()
-    }catch(err){
+
+        const emp = await Employee.find({ name: employee })
+        const moneyEarned = worked * emp[0].rate
+        await TimePunch.create({
+            employeeId: emp[0]._id,
+            employeeName: emp[0].name,
+            date: date,
+            location: location,
+            timeStart: timeStart,
+            timeEnd: timeEnd,
+            totalEarned: moneyEarned
+        })
+    } catch (err) {
         console.log(err)
     }
-    res.status(200).json({postPunch: 'hit post punch'})
+    res.status(200).json({ msg: 'time punch successfully created' })
 }
 
 
