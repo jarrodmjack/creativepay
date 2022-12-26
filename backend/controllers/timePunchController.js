@@ -51,7 +51,8 @@ const createTimePunch = async (req, res) => {
             location: location,
             timeStart: timeStart,
             timeEnd: timeEnd,
-            totalEarned: moneyEarned
+            hoursWorked: worked,
+            totalEarned: moneyEarned,
         })
     } catch (err) {
         console.log(err)

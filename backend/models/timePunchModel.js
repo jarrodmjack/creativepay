@@ -27,6 +27,10 @@ const timePunchSchema = new Schema({
         type: String,
         required: true
     },
+    hoursWorked: {
+        type: String,
+        required: true
+    },
     totalEarned: {
         type: String,
         required: true
