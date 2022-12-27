@@ -16,7 +16,6 @@ const getTimePunches = async (req, res) => {
 
 const createTimePunch = async (req, res) => {
 
-
     try {
         const {
             employee,
@@ -35,15 +34,14 @@ const createTimePunch = async (req, res) => {
                 let minutes = parseInt(str.substr(2, 4), 10)
                 return (hours * 60 + minutes) / 60;
             });
-            console.log(parsedHours)
             const worked = parsedHours[1] - parsedHours[0]
             return Math.ceil(worked / 0.5) * 0.5;
         }
 
         const worked = calcDifference(timeStart, timeEnd)
-
         const emp = await Employee.find({ name: employee })
         const moneyEarned = worked * emp[0].rate
+
         await TimePunch.create({
             employeeId: emp[0]._id,
             employeeName: emp[0].name,
