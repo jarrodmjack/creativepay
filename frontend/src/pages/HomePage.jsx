@@ -9,9 +9,17 @@ const HomePage = () => {
     const [location, setLocation] = useState('Office')
     const [timeStart, setTimeStart] = useState('')
     const [timeEnd, setTimeEnd] = useState('')
-
+    const [timePunches, setTimePunches] = useState([])
 
     useEffect(() => {
+        const fetchTimePunches = async () => {
+            const response = await fetch('/api/punch', {
+                method: "GET"
+            })
+            const data = await response.json()
+            setTimePunches(data)
+        }
+        fetchTimePunches()
         const fetchData = async () => {
             const response = await fetch('/api/home', {
                 method: "GET"
@@ -21,6 +29,8 @@ const HomePage = () => {
         }
         fetchData()
     }, [])
+    
+
 
     const handleSubmitTimePunch = async (e) => {
         e.preventDefault()
@@ -33,18 +43,16 @@ const HomePage = () => {
             timeEnd,
         }
 
-        console.log('tp: ', timePunch)
         try {
             const response = await fetch('/api/punch', {
                 method: 'POST',
                 body: JSON.stringify(timePunch),
                 headers: {
                     'Content-Type': 'application/json',
-                //     'Authorization': `Bearer ${user.token}`
                 }
             })
-            const json = await response.json()
-            console.log(json)
+            const newTimePunch = await response.json()
+            setTimePunches([...timePunches, newTimePunch])
         } catch (err) {
             console.log(err)
         }
@@ -53,9 +61,24 @@ const HomePage = () => {
         setDate('')
         setTimeStart('')
         setTimeEnd('')
-
-
     }
+
+    async function handleDelete(id) {
+        console.log('id handle del fn: ', id)
+        try {
+            await fetch(`/api/punch`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id })
+            });
+            setTimePunches(timePunches.filter(timePunch => timePunch._id !== id))
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
 
     return (
         <div className='flex flex-col p-10 gap-20 container mx-auto'>
@@ -130,7 +153,7 @@ const HomePage = () => {
                 </form>
             </div>
             <div>
-                <Table />
+                <Table timePunches={timePunches} handleDelete={handleDelete} />
             </div>
         </div>
     )

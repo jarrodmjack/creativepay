@@ -1,17 +1,8 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import formatTime from "../utils/formatTime"
+import formatDate from "../utils/formatDate"
 
-
-const Table = () => {
-
-    useEffect(() => {
-        const fetchTimePunches = async () => {
-            const response = await fetch('/api/punch', {
-                method: "GET"
-            })
-            const data = await response.json()
-        }
-        fetchTimePunches()
-    })
+const Table = ({ timePunches, handleDelete }) => {
 
     return (
         <div className="overflow-x-auto shadow-xl">
@@ -24,57 +15,24 @@ const Table = () => {
                         <th>Time Start</th>
                         <th>Time End</th>
                         <th>Total</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="hover cursor-pointer">
-                        <td>Cy Ganderton</td>
-                        <td>Nov 8th</td>
-                        <td>Office</td>
-                        <td>9:00AM</td>
-                        <td>4:30PM</td>
-                        <td>$142</td>
-                    </tr>
-                    {/* <tr className="hover cursor-pointer">
-                        <td>Cy Ganderton</td>
-                        <td>Nov 8th</td>
-                        <td>Office</td>
-                        <td>9:00AM</td>
-                        <td>4:30PM</td>
-                        <td>$142</td>
-                    </tr>
-                    <tr className="hover cursor-pointer">
-                        <td>Cy Ganderton</td>
-                        <td>Nov 8th</td>
-                        <td>Office</td>
-                        <td>9:00AM</td>
-                        <td>4:30PM</td>
-                        <td>$142</td>
-                    </tr>
-                    <tr className="hover cursor-pointer">
-                        <td>Cy Ganderton</td>
-                        <td>Nov 8th</td>
-                        <td>Office</td>
-                        <td>9:00AM</td>
-                        <td>4:30PM</td>
-                        <td>$142</td>
-                    </tr>
-                    <tr className="hover cursor-pointer">
-                        <td>Cy Ganderton</td>
-                        <td>Nov 8th</td>
-                        <td>Office</td>
-                        <td>9:00AM</td>
-                        <td>4:30PM</td>
-                        <td>$142</td>
-                    </tr>
-                    <tr className="hover cursor-pointer">
-                        <td>Cy Ganderton</td>
-                        <td>Nov 8th</td>
-                        <td>Office</td>
-                        <td>9:00AM</td>
-                        <td>4:30PM</td>
-                        <td>$142</td>
-                    </tr> */}
+                    {timePunches.map((timePunch, i) => (
+                        <tr
+                            key={i} className="cursor-pointer">
+                            <td>{timePunch.employeeName}</td>
+                            <td>{formatDate(timePunch.date)}</td>
+                            <td>{timePunch.location}</td>
+                            <td>{formatTime(timePunch.timeStart)}</td>
+                            <td>{formatTime(timePunch.timeEnd)}</td>
+                            <td>${timePunch.totalEarned}</td>
+                            <td
+                                onClick={() => handleDelete(timePunch._id)}
+                            >DEL</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

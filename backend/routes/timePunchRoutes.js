@@ -1,11 +1,11 @@
 const express = require('express')
-const { createTimePunch, getTimePunches } = require('../controllers/timePunchController')
+const { createTimePunch, getTimePunches, deleteTimePunch } = require('../controllers/timePunchController')
 // const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
 router.get('/', getTimePunches)
 router.post('/', createTimePunch)
-// router.delete()
+router.delete('/', deleteTimePunch)
 
 module.exports = router

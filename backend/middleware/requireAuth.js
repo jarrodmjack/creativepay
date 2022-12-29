@@ -29,7 +29,6 @@ const requireAuth = async (req, res, next) => {
 
     } catch (err) {
         console.log(err)
-        // res.redirect('/')
         res.status(401).json({ error: 'Bruh' })
     }
 

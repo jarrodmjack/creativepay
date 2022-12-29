@@ -42,7 +42,7 @@ const createTimePunch = async (req, res) => {
         const emp = await Employee.find({ name: employee })
         const moneyEarned = worked * emp[0].rate
 
-        await TimePunch.create({
+        const createdTimePunch = await TimePunch.create({
             employeeId: emp[0]._id,
             employeeName: emp[0].name,
             date: date,
@@ -52,15 +52,24 @@ const createTimePunch = async (req, res) => {
             hoursWorked: worked,
             totalEarned: moneyEarned,
         })
+        res.status(200).json(createdTimePunch)
     } catch (err) {
         console.log(err)
     }
-    res.status(200).json({ msg: 'time punch successfully created' })
+}
+
+
+const deleteTimePunch = async (req, res) => {
+    try {
+        const id = req.body.id
+        await TimePunch.findByIdAndDelete(id)
+    } catch (err) {
+        console.error(err)
+    }
+    res.status(200).json({ msg: 'successfully deleted punch' })
 }
 
 
 
 
-
-
-module.exports = { getTimePunches, createTimePunch }
+module.exports = { getTimePunches, createTimePunch, deleteTimePunch }
