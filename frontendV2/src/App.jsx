@@ -3,7 +3,7 @@ import { useAuthContext } from './hooks/useAuthContext'
 import HomePage from './pages/HomePage'
 
 function App() {
-  const { user } = useAuthContext()
+  // const { user } = useAuthContext()
 
 
 
@@ -23,10 +23,4 @@ function App() {
 
 
 export default App;
-
-
-
-
-
-
 

@@ -13,7 +13,7 @@ const HomePage = () => {
 
     useEffect(() => {
         const fetchTimePunches = async () => {
-            const response = await fetch('/api/punch', {
+            const response = await fetch('/api/punch/', {
                 method: "GET"
             })
             const data = await response.json()
@@ -21,7 +21,7 @@ const HomePage = () => {
         }
         fetchTimePunches()
         const fetchData = async () => {
-            const response = await fetch('/api/home', {
+            const response = await fetch('/api/home/', {
                 method: "GET"
             })
             const data = await response.json()
