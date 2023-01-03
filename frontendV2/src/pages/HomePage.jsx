@@ -117,9 +117,40 @@ const HomePage = () => {
                         >
                             <option disabled selected>Choose a Location</option>
                             <option>Office</option>
-                            <option>Kathy Weaver</option>
-                            <option>Hillcrest</option>
-                            <option>Blah Blah</option>
+                            <option>Klix</option>
+                            <option>WV</option>
+                            <option>PG</option>
+                            <option>TT</option>
+                            <option>PS</option>
+                            <option>GA</option>
+                            <option>SL</option>
+                            <option>KS</option>
+                            <option>MA</option>
+                            <option>WN</option>
+                            <option>VS</option>
+                            <option>RS</option>
+                            <option>QM</option>
+                            <option>WP</option>
+                            <option>SC</option>
+                            <option>ED</option>
+                            <option>HC</option>
+                            <option>HD</option>
+                            <option>QD</option>
+                            <option>PW</option>
+                            <option>QV</option>
+                            <option>DD</option>
+                            <option>CW</option>
+                            <option>BG</option>
+                            <option>HP</option>
+                            <option>RD</option>
+                            <option>MC</option>
+                            <option>WW</option>
+                            <option>VI</option>
+                            <option>SH</option>
+                            <option>GV</option>
+                            <option>GL</option>
+                            <option>HB</option>
+                            
                         </select>
                     </div>
                     <div className='flex flex-col w-fit'>
