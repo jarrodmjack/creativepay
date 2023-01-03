@@ -4,6 +4,7 @@ import formatDate from "../utils/formatDate"
 
 const Table = ({ timePunches, handleDelete }) => {
 
+    console.log(timePunches)
     return (
         <div className="overflow-x-auto shadow-xl">
             <table className="table w-full ">
