@@ -58,6 +58,23 @@ const createTimePunch = async (req, res) => {
     }
 }
 
+const updatePaidStatus = async (req, res) => {
+    try{
+        const id = req.body.id
+        const timePunch = await TimePunch.findById(id)
+        const paid = timePunch.paid
+        let paidCheck
+        if(paid){
+            paidCheck = false
+        }else{
+            paidCheck = true
+        }
+        await TimePunch.findByIdAndUpdate(id, {paid: paidCheck})
+    }catch(err){
+        console.error(err)
+    }
+    res.status(200).json({msg: 'successfully set paid status'})
+}
 
 const deleteTimePunch = async (req, res) => {
     try {
@@ -72,4 +89,4 @@ const deleteTimePunch = async (req, res) => {
 
 
 
-module.exports = { getTimePunches, createTimePunch, deleteTimePunch }
+module.exports = { getTimePunches, createTimePunch, deleteTimePunch, updatePaidStatus }
