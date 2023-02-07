@@ -118,6 +118,7 @@ const HomePage = () => {
                             <option disabled selected>Choose a Location</option>
                             <option>Office</option>
                             <option>Klix</option>
+                            <option>GS</option>
                             <option>WV</option>
                             <option>PG</option>
                             <option>TT</option>
@@ -150,7 +151,6 @@ const HomePage = () => {
                             <option>GV</option>
                             <option>GL</option>
                             <option>HB</option>
-                            
                         </select>
                     </div>
                     <div className='flex flex-col w-fit'>
