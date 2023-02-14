@@ -1,8 +1,0 @@
-Add form to make post requests with employee info.
-form will have the following fields:
-- employee(dropdown)
-- date
-- location
-- time start
-- time end
-- total rate

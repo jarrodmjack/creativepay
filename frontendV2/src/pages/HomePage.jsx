@@ -1,8 +1,12 @@
 import React from 'react'
 import Table from '../components/Table'
 import { useEffect, useState } from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const HomePage = () => {
+
+    const { user } = useAuthContext()
+
     const [employeeList, setEmployeeList] = useState([])
     const [employee, setEmployee] = useState('Christine')
     const [date, setDate] = useState('')
@@ -10,11 +14,14 @@ const HomePage = () => {
     const [timeStart, setTimeStart] = useState('')
     const [timeEnd, setTimeEnd] = useState('')
     const [timePunches, setTimePunches] = useState([])
-
+    
     useEffect(() => {
         const fetchTimePunches = async () => {
             const response = await fetch('/api/punch/', {
-                method: "GET"
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
             })
             const data = await response.json()
             setTimePunches(data)
@@ -22,7 +29,10 @@ const HomePage = () => {
         fetchTimePunches()
         const fetchData = async () => {
             const response = await fetch('/api/home/', {
-                method: "GET"
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
             })
             const data = await response.json()
             setEmployeeList(data)
@@ -64,7 +74,6 @@ const HomePage = () => {
     }
 
     async function handleDelete(id) {
-        console.log('id handle del fn: ', id)
         try {
             await fetch(`/api/punch`, {
                 method: 'DELETE',
@@ -98,7 +107,7 @@ const HomePage = () => {
                             value={employee || 'Christine'}
                         >
                             <option disabled selected>Employee Name</option>
-                            {employeeList.map((employee, i) => (
+                            {employeeList && employeeList.map((employee, i) => (
                                 <option
                                     key={i}
                                 >
