@@ -4,7 +4,6 @@ import formatDate from "../utils/formatDate"
 const Table = ({ timePunches, handleDelete }) => {
 
     const handleTogglePaid = async (id) => {
-        // console.log('handle toggle paid', id)
         try {
             await fetch(`/api/punch`, {
                 method: 'PUT',
