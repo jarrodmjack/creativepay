@@ -59,6 +59,7 @@ const HomePage = () => {
                 body: JSON.stringify(timePunch),
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
                 }
             })
             const newTimePunch = await response.json()
@@ -78,7 +79,8 @@ const HomePage = () => {
             await fetch(`/api/punch`, {
                 method: 'DELETE',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
                 },
                 body: JSON.stringify({ id })
             });
