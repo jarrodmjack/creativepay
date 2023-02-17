@@ -3,12 +3,15 @@ import formatDate from "../utils/formatDate"
 
 const Table = ({ timePunches, handleDelete }) => {
 
+    const { user } = useAuthContext()
+
     const handleTogglePaid = async (id) => {
         try {
             await fetch(`/api/punch`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
                 },
                 body: JSON.stringify({ id })
             });
