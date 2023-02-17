@@ -1,5 +1,7 @@
 import formatTime from "../utils/formatTime"
 import formatDate from "../utils/formatDate"
+import { useAuthContext } from '../hooks/useAuthContext'
+
 
 const Table = ({ timePunches, handleDelete }) => {
 
