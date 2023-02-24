@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 
 const createToken = (_id) => { //reusable token generation for login and signup
-    return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' })
+    return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '7d' })
 }
 
 
