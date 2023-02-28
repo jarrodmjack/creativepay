@@ -2,11 +2,11 @@ import React from 'react'
 import Table from '../components/Table'
 import { useEffect, useState } from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { Navigate } from "react-router-dom";
 
 const HomePage = () => {
 
     const { user } = useAuthContext()
-
     const [employeeList, setEmployeeList] = useState([])
     const [employee, setEmployee] = useState('Christine')
     const [date, setDate] = useState('')
@@ -23,9 +23,14 @@ const HomePage = () => {
                     'Authorization': `Bearer ${user.token}`
                 }
             })
+            if(!response.ok){
+                localStorage.removeItem('user');
+                <Navigate to='/login' />
+            }
             const data = await response.json()
             setTimePunches(data)
         }
+
         fetchTimePunches()
         const fetchData = async () => {
             const response = await fetch('/api/home/', {

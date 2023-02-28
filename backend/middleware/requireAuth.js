@@ -15,13 +15,10 @@ const requireAuth = async (req, res, next) => {
     const decodedToken = jwtDecode(token)
     const dateNow = new Date();
 
-    if(decodedToken.exp < dateNow.getTime()/1000){
-        console.log('token is expired')
-    }else{
-        console.log('token is valid')
+    if (decodedToken.exp < dateNow.getTime() / 1000) {
+        res.status(401)
     }
 
-    
     try {
         const { _id } = jwt.verify(token, process.env.SECRET)
         req.user = await User.findOne({ _id }).select('_id') //returns just id from user document
