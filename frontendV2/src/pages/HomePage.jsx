@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Table from '../components/Table'
 import { useEffect, useState } from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { Navigate } from "react-router-dom";
+import { useReactToPrint } from 'react-to-print'
+import TableOptions from '../components/TableOptions';
+import EmployeeTotals from '../components/EmployeeTotals';
 
 const HomePage = () => {
 
@@ -14,7 +17,7 @@ const HomePage = () => {
     const [timeStart, setTimeStart] = useState('')
     const [timeEnd, setTimeEnd] = useState('')
     const [timePunches, setTimePunches] = useState([])
-    
+
     useEffect(() => {
         const fetchTimePunches = async () => {
             const response = await fetch('/api/punch/', {
@@ -23,7 +26,7 @@ const HomePage = () => {
                     'Authorization': `Bearer ${user.token}`
                 }
             })
-            if(!response.ok){
+            if (!response.ok) {
                 localStorage.removeItem('user');
                 <Navigate to='/login' />
             }
@@ -44,8 +47,20 @@ const HomePage = () => {
         }
         fetchData()
     }, [])
-    
 
+    const handleFilterTimePunches = (e, fromDate, toDate) => {
+        e.preventDefault()
+
+        fromDate = new Date(fromDate)
+        toDate = new Date(toDate)
+
+        setTimePunches(timePunches.filter((timepunch) => {
+            let timepunchDate = new Date(timepunch.date)
+            if (timepunchDate <= toDate && timepunchDate >= fromDate) {
+                return timepunch
+            }
+        }))
+    }
 
     const handleSubmitTimePunch = async (e) => {
         e.preventDefault()
@@ -95,12 +110,15 @@ const HomePage = () => {
         }
     }
 
+    const componentRef = useRef(null)
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: 'timepunch-data',
+    })
+
 
     return (
         <div className='flex flex-col p-10 gap-20 container mx-auto'>
-            <div>
-                <h1 className='text-2xl '>Employee time punches</h1>
-            </div>
             <div>
                 <form
                     onSubmit={handleSubmitTimePunch}
@@ -196,11 +214,17 @@ const HomePage = () => {
                             value={timeEnd}
                         />
                     </div>
-                    <button type='submit' className="btn btn-accent w-full">Add Time punch</button>
+                    <button type='submit' className="btn btn-primary w-full">Add Time punch</button>
                 </form>
             </div>
+            <TableOptions handlePrint={handlePrint} handleFilterTimePunches={handleFilterTimePunches} />
             <div>
-                <Table timePunches={timePunches} handleDelete={handleDelete} />
+                <div className='flex flex-col' ref={componentRef} style={{ width: '100%', height: '100%' }}>
+                    <div className='bg-base-100 h-20 flex flex-col justify-center border-2'>
+                        <EmployeeTotals timePunches={timePunches} />
+                    </div>
+                    <Table timePunches={timePunches} handleDelete={handleDelete} />
+                </div>
             </div>
         </div>
     )

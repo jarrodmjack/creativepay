@@ -1,8 +1,6 @@
 const axios = require('axios')
 const TimePunch = require('../models/timePunchModel')
 const Employee = require('../models/employeeModel')
-// const calcDifference = require('../utils/calcTimeDifference')
-// import calcDifference from '../utils/calcTimeDifference'
 
 const getTimePunches = async (req, res) => {
     try {
