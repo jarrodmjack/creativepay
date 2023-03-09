@@ -1,0 +1,5 @@
+Add pagination
+
+Move/breakdown code into components/general abstraction to reduce complexity of components
+
+Fix bug - when adding a filter - shows all timepunches as paid even if they arent in paid status.
