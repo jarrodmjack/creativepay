@@ -244,7 +244,12 @@ const HomePage = () => {
                     <div className='bg-base-100 h-20 flex flex-col justify-center'>
                         <EmployeeTotals filterDates={filterDates} timePunches={timePunches} />
                     </div>
-                    <Table timePunches={timePunches} filteredTimePunches={filteredTimePunches} handleDelete={handleDelete} />
+                    <Table
+                        timePunches={timePunches}
+                        filteredTimePunches={filteredTimePunches}
+                        handleDelete={handleDelete}
+                        setTimePunches={setTimePunches}
+                    />
                 </div>
             </div>
         </div>

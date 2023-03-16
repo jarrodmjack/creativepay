@@ -3,7 +3,7 @@ import formatDate from "../utils/formatDate"
 import { useAuthContext } from '../hooks/useAuthContext'
 
 
-const Table = ({ timePunches, handleDelete, filteredTimePunches }) => {
+const Table = ({ timePunches, handleDelete, filteredTimePunches, handleSortTimePunches }) => {
 
     const { user } = useAuthContext()
 
@@ -17,11 +17,12 @@ const Table = ({ timePunches, handleDelete, filteredTimePunches }) => {
                 },
                 body: JSON.stringify({ id })
             });
+
         } catch (error) {
             console.error(error);
         }
     }
-
+    
     if (filteredTimePunches.length > 0) {
         return (
             <div className="overflow-x-auto shadow-xl">
@@ -53,7 +54,7 @@ const Table = ({ timePunches, handleDelete, filteredTimePunches }) => {
                                     <input
                                         onClick={() => handleTogglePaid(timePunch._id)}
                                         type="checkbox"
-                                        defaultChecked={timePunch.paid ? true : false}
+                                        checked={timePunch.paid ? true : false}
                                         className="checkbox checkbox-success" />
                                 </td>
                                 <td>
