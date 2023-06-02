@@ -1,4 +1,5 @@
-Add pagination
+Fix bug with paid/unpaid
+Show oldest at front page
 
 Move/breakdown code into components/general abstraction to reduce complexity of components
 

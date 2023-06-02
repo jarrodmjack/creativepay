@@ -4,7 +4,7 @@ const Employee = require('../models/employeeModel')
 
 const getTimePunches = async (req, res) => {
     try {
-        const timePunches = await TimePunch.find()
+        const timePunches = await TimePunch.find().sort({ "createdAt": -1 })
         res.status(200).json(timePunches)
     }
     catch (err) {
@@ -13,7 +13,6 @@ const getTimePunches = async (req, res) => {
 }
 
 const createTimePunch = async (req, res) => {
-
     try {
         const {
             employee,
@@ -57,21 +56,23 @@ const createTimePunch = async (req, res) => {
 }
 
 const updatePaidStatus = async (req, res) => {
-    try{
+    try {
         const id = req.body.id
         const timePunch = await TimePunch.findById(id)
         const paid = timePunch.paid
-        let paidCheck
-        if(paid){
+        let paidCheck;
+        if (paid) {
             paidCheck = false
-        }else{
+        } else {
             paidCheck = true
         }
-        await TimePunch.findByIdAndUpdate(id, {paid: paidCheck})
-    }catch(err){
+        timePunch.paid = paidCheck
+        await TimePunch.findByIdAndUpdate(id, { paid: paidCheck })
+        res.status(200).json({ msg: 'successfully set paid status', newPaidStatus: paidCheck })
+    } catch (err) {
         console.error(err)
+        res.status(400).json({ msg: 'could not update paid status', newPaidStatus: paidCheck })
     }
-    res.status(200).json({msg: 'successfully set paid status'})
 }
 
 const deleteTimePunch = async (req, res) => {
@@ -83,8 +84,5 @@ const deleteTimePunch = async (req, res) => {
     }
     res.status(200).json({ msg: 'successfully deleted punch' })
 }
-
-
-
 
 module.exports = { getTimePunches, createTimePunch, deleteTimePunch, updatePaidStatus }

@@ -8,7 +8,10 @@ const TableOptions = ({ handlePrint, handleFilterTimePunches, handleResetFilter 
   return (
     <div className='flex flex-col gap-4'>
       <span className='text-2xl font-semibold'>Filter by date</span>
-      <form onSubmit={(e) => handleFilterTimePunches(e, fromDate, toDate)}>
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        handleFilterTimePunches(fromDate, toDate)
+      }}>
         <div className='flex flex-col gap-4'>
           <div className='flex gap-10'>
             <div className='flex flex-col'>
@@ -37,7 +40,12 @@ const TableOptions = ({ handlePrint, handleFilterTimePunches, handleResetFilter 
             >Apply filter
             </button>
             <button
-              onClick={handleResetFilter}
+              onClick={(e) => {
+                e.preventDefault()
+                handleResetFilter()
+                setFromDate('')
+                setToDate('')
+              }}
               className='btn btn-accent w-40'>
               Reset Filter
             </button>
