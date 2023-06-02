@@ -31,8 +31,7 @@ THIS PROJECT IS CURRENTLY INACTIVE DUE TO HEROKU KILLING THEIR FREE TIERS
 <!-- PROJECT LOGO -->
  <br />
 <div align="center">
-<img src="![creativepaylandingpage](https://github.com/jarrodmjack/creativepay/assets/99290888/d314dca5-1661-4a98-8bd8-1eefd023383a)
-"/> 
+<img src="![creativepaylandingpage](https://github.com/jarrodmjack/creativepay/assets/99290888/d314dca5-1661-4a98-8bd8-1eefd023383a)"/> 
 
 
 <h3 align="center">Clearcoin</h3>
@@ -84,8 +83,7 @@ THIS PROJECT IS CURRENTLY INACTIVE DUE TO HEROKU KILLING THEIR FREE TIERS
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![landingpage](https://user-images.githubusercontent.com/99290888/195197328-c0880524-51ed-4864-93e7-9be13de7920f.jpg)
-
+![creativepaylandingpage](https://github.com/jarrodmjack/creativepay/assets/99290888/d314dca5-1661-4a98-8bd8-1eefd023383a)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
