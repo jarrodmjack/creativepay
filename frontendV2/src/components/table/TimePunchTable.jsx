@@ -18,7 +18,7 @@ const TimePunchTable = ({ timePunches }) => {
     // Pagination
     const indexOfLastTimePunch = currentPage * timepunchesPerPage
     const indexOfFirstTimepunch = indexOfLastTimePunch - timepunchesPerPage
-    const currentTimepunches = timePunches.slice(indexOfFirstTimepunch, indexOfLastTimePunch)
+    const currentTimepunches = tableTimePunches.slice(indexOfFirstTimepunch, indexOfLastTimePunch)
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -36,7 +36,7 @@ const TimePunchTable = ({ timePunches }) => {
             })
             if (response.ok) {
                 const newTimePunch = await response.json()
-                setTableTimePunches([newTimePunch, ...tableTimePunches])
+                setTableTimePunches([newTimePunch, ...currentTimepunches])
             }
         } catch (err) {
             window.alert('There was an issue submitting the timepunch. Please ensure the information entered is correct and try again')
@@ -90,7 +90,7 @@ const TimePunchTable = ({ timePunches }) => {
                 body: JSON.stringify({ id })
             });
             if (response.ok) {
-                setTableTimePunches(timePunches.filter(timePunch => timePunch._id !== id))
+                setTableTimePunches(currentTimepunches.filter(timePunch => timePunch._id !== id))
             } else {
                 window.alert('There was an issue deleting. Please try again')
             }
