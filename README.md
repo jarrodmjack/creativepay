@@ -25,8 +25,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-THIS PROJECT IS CURRENTLY INACTIVE DUE TO HEROKU KILLING THEIR FREE TIERS
-
 
 <!-- PROJECT LOGO -->
  <br />
@@ -34,19 +32,19 @@ THIS PROJECT IS CURRENTLY INACTIVE DUE TO HEROKU KILLING THEIR FREE TIERS
 <img src="![creativepaylandingpage](https://github.com/jarrodmjack/creativepay/assets/99290888/d314dca5-1661-4a98-8bd8-1eefd023383a)"/> 
 
 
-<h3 align="center">Clearcoin</h3>
+<h3 align="center">CreativePay</h3>
 
   <p align="center">
-    Clearcoin is a cryptocurrency price tracking application meant to make price tracking more accessible and less overwhelming.
+    Creativepay is an employee time tracker for a small business, designed to perform wage/hour calculations and employee time punch tracking instead of entering them by hand (which is what the business owner was doing prior)
     <br />
     <a href="https://github.com/jarrodmjack/creativepay"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="">*DEMO TO DO*</a>
     ·
-    <a href="https://github.com/jarrodmjack/Clearcoin-mkII/issues">Report Bug</a>
+    <a href="https://github.com/jarrodmjack/creativepay/issues">Report Bug</a>
     ·
-    <a href="https://github.com/jarrodmjack/Clearcoin-mkII/issues">Request Feature</a>
+    <a href="https://github.com/jarrodmjack/creativepay/issues">Request Feature</a>
   </p>
 </div>
 
@@ -114,7 +112,7 @@ THIS PROJECT IS CURRENTLY INACTIVE DUE TO HEROKU KILLING THEIR FREE TIERS
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/jarrodmjack/Clearcoin-mkII.git
+   git clone https://github.com/jarrodmjack/creativepay.git
    ```
 2. Install NPM packages
    ```sh
@@ -153,7 +151,7 @@ THIS PROJECT IS CURRENTLY INACTIVE DUE TO HEROKU KILLING THEIR FREE TIERS
 - [ ] Implement separate employee statistics routes
 - [ ] Add Pagination to home page table
 
-See the [open issues](https://github.com/jarrodmjack/Clearcoin-mkII/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/jarrodmjack/creativepay/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,7 +189,7 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 [@jarrodmjack](https://twitter.com/jarrodmjack) - jarrodmjack@gmail.com
 
-[https://github.com/jarrodmjack/Clearcoin-mkII](https://github.com/jarrodmjack/Clearcoin-mkII)
+[https://github.com/jarrodmjack/creativepay](https://github.com/jarrodmjack/creativepay)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -199,16 +197,16 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/jarrodmjack/Clearcoin-mkII.svg?style=for-the-badge
-[contributors-url]: https://github.com/jarrodmjack/Clearcoin-mkII/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jarrodmjack/Clearcoin-mkII.svg?style=for-the-badge
-[forks-url]: https://github.com/jarrodmjack/Clearcoin-mkII/network/members
-[stars-shield]: https://img.shields.io/github/stars/jarrodmjack/Clearcoin-mkII.svg?style=for-the-badge
-[stars-url]: https://github.com/jarrodmjack/Clearcoin-mkII/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jarrodmjack/Clearcoin-mkII.svg?style=for-the-badge
-[issues-url]: https://github.com/jarrodmjack/Clearcoin-mkII/issues
-[license-shield]: https://img.shields.io/github/license/jarrodmjack/Clearcoin-mkII.svg?style=for-the-badge
-[license-url]: https://github.com/jarrodmjack/Clearcoin-mkII/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/jarrodmjack/creativepay.svg?style=for-the-badge
+[contributors-url]: https://github.com/jarrodmjack/creativepay/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/jarrodmjack/creativepay.svg?style=for-the-badge
+[forks-url]: https://github.com/jarrodmjack/creativepay/network/members
+[stars-shield]: https://img.shields.io/github/stars/jarrodmjack/creativepay.svg?style=for-the-badge
+[stars-url]: https://github.com/jarrodmjack/creativepay/stargazers
+[issues-shield]: https://img.shields.io/github/issues/jarrodmjack/creativepay.svg?style=for-the-badge
+[issues-url]: https://github.com/jarrodmjack/creativepay/issues
+[license-shield]: https://img.shields.io/github/license/jarrodmjack/creativepay.svg?style=for-the-badge
+[license-url]: https://github.com/jarrodmjack/creativepay/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jarrodmjack
 [product-screenshot]: images/screenshot.png
