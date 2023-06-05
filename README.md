@@ -123,21 +123,21 @@
    npm install
    ```
 3. Enter your information in `backend/config/env`
-   ```js
+   ```sh
    PORT = 4001 (or whatever you want)
    MONGO_URI = MONGO DATABASE URI
    SECRET = (whatever you want)
    ```
 
 4. Start the app
-   ```js
-  Front end:
-  cd frontendV2
-  npm run dev
+   ```sh
+   Front end:
+   cd frontendV2
+   npm run dev
   
-  Back end:
-  cd backend
-  npm run start
+   Back end:
+   cd backend
+   npm run start
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
