@@ -32,7 +32,7 @@ const createTimePunch = async (req, res) => {
                 return (hours * 60 + minutes) / 60;
             });
             const worked = parsedHours[1] - parsedHours[0]
-            return Math.ceil(worked / 0.5) * 0.5;
+            return Math.ceil(worked / 0.25) * 0.25;
         }
 
         const worked = calcDifference(timeStart, timeEnd)
